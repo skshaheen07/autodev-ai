@@ -1,6 +1,6 @@
-﻿# AutoDev AI — Autonomous Multi-Agent Software Engineering Team
+# AutoDev AI � Autonomous Multi-Agent Software Engineering Team
 
-An autonomous AI platform where 9 specialized AI agents collaborate like a real software development team to turn a plain-English idea into working code, a database schema, tests, documentation, and deployment configuration — end to end, with self-correction built in.
+An autonomous AI platform where 9 specialized AI agents collaborate like a real software development team to turn a plain-English idea into working code, a database schema, tests, documentation, and deployment configuration � end to end, with self-correction built in.
 
 **Live demo**: https://autodev-ai-nine.vercel.app
 **Backend API docs**: https://autodev-backend-kmg1.onrender.com/docs
@@ -24,7 +24,7 @@ Give it an idea like *"Build an expense tracker with authentication and monthly 
 9. Writes a README for the generated project
 10. Generates Docker deployment configuration
 
-The result is downloadable as a ZIP — real, runnable files, not just a chat response.
+The result is downloadable as a ZIP � real, runnable files, not just a chat response.
 
 ---
 
@@ -47,7 +47,7 @@ PostgreSQL (Render) + ChromaDB (RAG knowledge base)
 Groq (Llama 3.3 70B) for all agent reasoning
 \\\
 
-**Orchestration**: LangGraph \StateGraph\ with a Supervisor pattern. The Supervisor inspects shared state after every agent runs and decides what happens next — including routing failed code back to the Backend Dev agent when Testing fails, capped at one retry to avoid infinite loops.
+**Orchestration**: LangGraph \StateGraph\ with a Supervisor pattern. The Supervisor inspects shared state after every agent runs and decides what happens next � including routing failed code back to the Backend Dev agent when Testing fails, capped at one retry to avoid infinite loops.
 
 **Reliability engineering**: 
 - LLM output is validated against actual state before being trusted (the Supervisor's routing decision is double-checked by code, not blindly followed)
@@ -75,20 +75,20 @@ Groq (Llama 3.3 70B) for all agent reasoning
 
 \\\
 autodev-ai/
-├── backend/
-│   ├── app/            # FastAPI app: routes, models, schemas, services, repositories
-│   ├── agents/         # The 9 AI agents + Supervisor
-│   ├── graphs/          # LangGraph state schema, routing, graph assembly
-│   ├── tools/            # RAG retriever
-│   └── alembic/          # Database migrations
-├── frontend/
-│   └── src/
-│       ├── pages/         # Login, Register, Dashboard, ProjectDetails, Profile, etc.
-│       ├── components/    # Navbar, PipelineStrip, ProtectedRoute
-│       └── api/            # Backend API client
-├── vectorstore/          # RAG knowledge base ingestion
-├── docker-compose.yml
-└── generated_projects/    # Output folder for AI-generated code
++-- backend/
+�   +-- app/            # FastAPI app: routes, models, schemas, services, repositories
+�   +-- agents/         # The 9 AI agents + Supervisor
+�   +-- graphs/          # LangGraph state schema, routing, graph assembly
+�   +-- tools/            # RAG retriever
+�   +-- alembic/          # Database migrations
++-- frontend/
+�   +-- src/
+�       +-- pages/         # Login, Register, Dashboard, ProjectDetails, Profile, etc.
+�       +-- components/    # Navbar, PipelineStrip, ProtectedRoute
+�       +-- api/            # Backend API client
++-- vectorstore/          # RAG knowledge base ingestion
++-- docker-compose.yml
++-- generated_projects/    # Output folder for AI-generated code
 \\\
 
 ---
@@ -127,13 +127,13 @@ autodev-ai/
 - **Self-healing retry loop**: agents retry on empty/malformed output; the Supervisor routes failed code back to the Dev agent when tests fail, with a bounded retry count
 - **RAG-grounded code generation** using ChromaDB
 - **JWT authentication** with bcrypt password hashing, forgot/reset password flow
-- **Live progress tracking** — React Query polling shows pipeline status in real time
-- **Downloadable output** — every generated project is written to disk and available as a ZIP
-- **Fully containerized** — one \docker-compose up\ runs the entire stack
-- **Deployed and publicly accessible** — not just a local demo
+- **Live progress tracking** � React Query polling shows pipeline status in real time
+- **Downloadable output** � every generated project is written to disk and available as a ZIP
+- **Fully containerized** � one \docker-compose up\ runs the entire stack
+- **Deployed and publicly accessible** � not just a local demo
 
 ---
 
 ## Author
 
-Built by Shaik Shaheen Tabassum as a B.Tech final-year major project.
+Built by Shaik Shaheen Tabassum.
