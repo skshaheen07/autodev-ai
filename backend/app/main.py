@@ -15,6 +15,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://localhost:5174",
+        "autodev-ai-nine.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
