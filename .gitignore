@@ -1,0 +1,12 @@
+﻿venv/
+node_modules/
+__pycache__/
+*.pyc
+.env
+dist/
+build/
+chroma_data/
+generated_projects/*
+!generated_projects/.gitkeep
+
+.env

@@ -1,0 +1,47 @@
+﻿services:
+  db:
+    image: postgres:16
+    container_name: autodev-postgres-docker
+    environment:
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: autodev
+    ports:
+      - "5433:5432"
+    volumes:
+      - autodev_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+    container_name: autodev-backend
+    environment:
+      DATABASE_URL: postgresql://postgres:devpassword@db:5432/autodev
+      SECRET_KEY: super-secret-dev-key-change-this-in-production-8f3a92kd83
+      ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 1440
+      GROQ_API_KEY: 
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - autodev_generated:/app/../generated_projects
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: autodev-frontend
+    ports:
+      - "5174:80"
+    depends_on:
+      - backend
+
+volumes:
+  autodev_pgdata:
+  autodev_generated:
